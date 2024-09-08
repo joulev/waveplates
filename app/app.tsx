@@ -105,7 +105,7 @@ function Label({ ...props }: React.ComponentPropsWithoutRef<"label">) {
 function Input({ ...props }: React.ComponentPropsWithoutRef<"input">) {
   return (
     <input
-      className="w-full bg-transparent outline-none border border-neutral-700 focus-within:border-purple-700 px-3 py-1.5 placeholder:text-neutral-600"
+      className="w-full bg-transparent outline-none rounded-none border border-neutral-700 focus-within:border-purple-700 px-3 py-1.5 placeholder:text-neutral-600"
       {...props}
     />
   );
