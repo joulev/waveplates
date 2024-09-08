@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Hanken_Grotesk } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const sans = Hanken_Grotesk({ subsets: ["latin"], variable: "--sans" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,9 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={clsx(
+          sans.variable,
+          "font-sans bg-neutral-950 text-neutral-300"
+        )}
       >
-        {children}
+        <main className="container max-w-lg mx-auto p-9">{children}</main>
       </body>
     </html>
   );
