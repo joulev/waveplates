@@ -8,6 +8,11 @@ const sans = Hanken_Grotesk({ subsets: ["latin"], variable: "--sans" });
 export const metadata: Metadata = {
   title: "Waveplates",
   description: "Calculate how many stamina you have in your gacha accounts",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Waveplates",
+  },
 };
 
 export default function RootLayout({
