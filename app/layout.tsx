@@ -5,21 +5,20 @@ import "./globals.css";
 
 const sans = Hanken_Grotesk({ subsets: ["latin"], variable: "--sans" });
 
-export const metadata: Metadata = {
-  title: "Waveplates",
-  description: "Calculate how many stamina you have in your gacha accounts",
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
-    title: "Waveplates",
-  },
-};
+function Link({ href, children }: { href: string; children: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-purple-400"
+    >
+      {children}
+    </a>
+  );
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -49,8 +48,25 @@ export default function RootLayout({
           "font-sans bg-neutral-950 text-neutral-300"
         )}
       >
-        <main className="container max-w-lg mx-auto p-9">{children}</main>
+        <div className="container max-w-lg mx-auto p-9 flex flex-col gap-6">
+          <main>{children}</main>
+          <footer className="text-sm text-neutral-500">
+            Built by <Link href="https://github.com/joulev">@joulev</Link> with{" "}
+            <Link href="https://nextjs.org">Next.js</Link>. Source{" "}
+            <Link href="https://github.com/joulev/waveplates">on GitHub</Link>.
+          </footer>
+        </div>
       </body>
     </html>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Waveplates",
+  description: "Calculate how many stamina you have in your gacha accounts",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Waveplates",
+  },
+};

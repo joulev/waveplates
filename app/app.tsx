@@ -422,7 +422,7 @@ function MainScreen({ games }: { games: Game[] }) {
         <div>
           <button
             type="button"
-            className="text-purple-500 inline-block"
+            className="text-purple-400 inline-block"
             onClick={() => setState("data")}
           >
             ← Back
